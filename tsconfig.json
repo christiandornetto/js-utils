@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "ES2020",
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "ESNext"],
+    "outDir": "./dist/JSUtils",
+    "declaration": true,
+    "declarationDir": "./dist/JSUtils/types",
+    "removeComments": false,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true
+  },
+  "files": ["./src/index.ts"],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
