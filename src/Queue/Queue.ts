@@ -1,17 +1,21 @@
-export class Queue<T = any> extends Array {
-  Enqueue(value: T): void {
+export class Queue<T = any> extends Array<T> {
+  public get Length(): number {
+    return this.length;
+  }
+
+  public Enqueue(value: T): void {
     this.push(value);
   }
 
-  Dequeue(): T {
+  public Dequeue(): T | undefined {
     return this.shift();
   }
 
-  Peek(): T {
+  public Peek(): T {
     return this[0];
   }
 
-  IsEmpty(): boolean {
+  public IsEmpty(): boolean {
     return this.length === 0;
   }
 }
