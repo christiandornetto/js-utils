@@ -1,11 +1,11 @@
 export interface ILogger {
   get LoggingLevel(): LoggingLevelEnum;
-  Log(level: LoggingLevelEnum, message: string, ...data: any[]): void;
-  Trace(message: string, ...data: any[]): void;
-  LogDebug(message: string, ...data: any[]): void;
-  LogInformation(message: string, ...data: any[]): void;
-  LogWarning(message: string, ...data: any[]): void;
-  LogError(message: string, ...data: any[]): void;
+  Log(level: LoggingLevelEnum, message: string, data: any): void;
+  Trace(message: string, data: any): void;
+  LogDebug(message: string, data: any): void;
+  LogInformation(message: string, data: any): void;
+  LogWarning(message: string, data: any): void;
+  LogError(message: string, data: any): void;
 }
 
 export interface ILoggerInterfaceConfiguration {

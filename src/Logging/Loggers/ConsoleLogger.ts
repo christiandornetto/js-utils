@@ -22,12 +22,12 @@ export class ConsoleLogger extends LoggerBase {
    * @param {string} message message to log
    * @param {any} data
    */
-  public Log(level: LoggingLevelEnum, message: string, ...data: any[]): void {
+  public Log(level: LoggingLevelEnum, message: string, data: any): void {
     if (this.ShouldLog(level) === false) {
       return;
     }
 
-    const logData = [`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Trace), ...data];
+    const logData = [`%c${message}`, this.#GetConsoleOptions(level), data];
     switch (level) {
       case LoggingLevelEnum.Trace:
         console.trace(...logData);
@@ -51,40 +51,40 @@ export class ConsoleLogger extends LoggerBase {
    * @param {string} message message to log
    * @param {any} data
    */
-  public Trace(message: string, ...data: any[]): void {
-    this.ShouldLog(LoggingLevelEnum.Trace) && console.trace(`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Trace), ...data);
+  public Trace(message: string, data: any): void {
+    this.ShouldLog(LoggingLevelEnum.Trace) && console.trace(`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Trace), data);
   }
   /**
    * Logs with a level of Debug
    * @param {string} message message to log
    * @param {any} data
    */
-  public LogDebug(message: string, ...data: any[]): void {
-    this.ShouldLog(LoggingLevelEnum.Debug) && console.debug(`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Debug), ...data);
+  public LogDebug(message: string, data: any): void {
+    this.ShouldLog(LoggingLevelEnum.Debug) && console.debug(`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Debug), data);
   }
   /**
    * Logs with a level of Information
    * @param {string} message message to log
    * @param {any} data
    */
-  public LogInformation(message: string, ...data: any[]): void {
-    this.ShouldLog(LoggingLevelEnum.Information) && console.info(`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Information), ...data);
+  public LogInformation(message: string, data: any): void {
+    this.ShouldLog(LoggingLevelEnum.Information) && console.info(`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Information), data);
   }
   /**
    * Logs with a level of Warning
    * @param {string} message message to log
    * @param {any} data
    */
-  public LogWarning(message: string, ...data: any[]): void {
-    this.ShouldLog(LoggingLevelEnum.Warning) && console.warn(`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Warning), ...data);
+  public LogWarning(message: string, data: any): void {
+    this.ShouldLog(LoggingLevelEnum.Warning) && console.warn(`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Warning), data);
   }
   /**
    * Logs with a level of Error
    * @param {string} message message to log
    * @param {any} data
    */
-  public LogError(message: string, ...data: any[]): void {
-    this.ShouldLog(LoggingLevelEnum.Error) && console.error(`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Error), ...data);
+  public LogError(message: string, data: any): void {
+    this.ShouldLog(LoggingLevelEnum.Error) && console.error(`%c${message}`, this.#GetConsoleOptions(LoggingLevelEnum.Error), data);
   }
 
   #GetConsoleOptions(level: LoggingLevelEnum) {
