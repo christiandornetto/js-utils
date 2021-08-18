@@ -6,6 +6,7 @@ export interface ILogger {
   LogInformation(message: string, data: any): void;
   LogWarning(message: string, data: any): void;
   LogError(message: string, data: any): void;
+  Download?(): any;
 }
 
 export interface ILoggerInterfaceConfiguration {

@@ -69,4 +69,19 @@ export class Logger extends LoggerBase {
     this.ShouldLog(LoggingLevelEnum.Error) &&
       this.#configuration.loggers.forEach(l => l.LogError(`${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Error]}] ${message}`, data));
   }
+
+  public Download(): void {
+    const content: any[] = [];
+    this.#configuration.loggers.forEach(l => {
+      content.push('log\n');
+      l.Download && content.push(...l.Download(), '\n');
+    });
+
+    const file = new Blob(content, { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(file);
+    a.download = 'logs.log';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
 }

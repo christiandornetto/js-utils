@@ -25,7 +25,7 @@ export class LocalStorageLogger extends LoggerBase {
     }
     const logData = JSON.stringify({ message, data });
     this.#queue.Enqueue(logData);
-    localStorage.setItem(this.#configuration.name + this.#queue.Length, logData);
+    localStorage.setItem(`${this.#configuration.name}_${this.#queue.Length}`, logData);
   }
   public Trace(message: string, data: any): void {
     throw new Error('Method not implemented.');
@@ -41,5 +41,14 @@ export class LocalStorageLogger extends LoggerBase {
   }
   public LogError(message: string, data: any): void {
     throw new Error('Method not implemented.');
+  }
+
+  public Download(): any {
+    // const a = document.createElement('a');
+    return this.#queue.sort().values();
+    // a.href = URL.createObjectURL(file);
+    // a.download = this.#configuration.name + '.log';
+    // a.click();
+    // URL.revokeObjectURL(a.href);
   }
 }
