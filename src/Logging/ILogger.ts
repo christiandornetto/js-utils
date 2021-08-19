@@ -18,6 +18,9 @@ export class LoggerConfiguration implements ILoggerInterfaceConfiguration {
   loggers: ILogger[] = [];
 }
 
+/**
+ * @deprecated
+ */
 export const LoggingLevel = {
   Trace: 0,
   Debug: 1,
