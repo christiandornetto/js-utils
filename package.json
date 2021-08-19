@@ -1,6 +1,6 @@
 {
   "name": "@christiandornetto/jsutils",
-  "version": "1.0.1-beta.0",
+  "version": "1.0.4",
   "description": "",
   "main": "./index.js",
   "module": "./index.js",
@@ -13,9 +13,9 @@
     "prebuild": "tsc",
     "build": "webpack",
     "postbuild": "tsc",
-    "prepublish": "cp package.json ./dist",
-    "publish": "cd ./dist && npm publish",
-    "publish:beta": "npm version prerelease --preid beta --no-git-tag-version && npm run publish --tag beta"
+    "publish": "cp package.json ./dist && cd ./dist && npm publish",
+    "publish:beta": "npm version prerelease --preid beta --no-git-tag-version && npm run publish --tag beta",
+    "publish:patch": "npm version patch --no-git-tag-version && npm run publish"
   },
   "author": "",
   "license": "ISC",
