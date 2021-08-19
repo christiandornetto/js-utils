@@ -1,17 +1,16 @@
 import { Queue } from '../../Queue/Queue.js';
-import { LoggingLevelEnum } from '../ILogger.js';
+import { ILoggerInterfaceConfiguration, LoggingLevelEnum } from '../ILogger.js';
 import { LoggerBase } from '../LoggerBase.js';
-import { LocalStorageLoggerConfiguration } from './LocalStorageLoggerConfiguration.js';
 
 export class LocalStorageLogger extends LoggerBase {
-  #configuration: LocalStorageLoggerConfiguration;
+  #configuration: ILocalStorageLoggerConfiguration;
   #queue: Queue;
 
   /**
    *
-   * @param {LocalStorageLoggerConfiguration} configuration
+   * @param {ILocalStorageLoggerConfiguration} configuration
    */
-  constructor(configuration = new LocalStorageLoggerConfiguration()) {
+  constructor(configuration: ILocalStorageLoggerConfiguration = { name: 'localstorage-log' }) {
     super(configuration);
     this.#configuration = configuration;
     this.#queue = new Queue();
@@ -51,4 +50,8 @@ export class LocalStorageLogger extends LoggerBase {
     // a.click();
     // URL.revokeObjectURL(a.href);
   }
+}
+
+export interface ILocalStorageLoggerConfiguration extends ILoggerInterfaceConfiguration {
+  name: string;
 }

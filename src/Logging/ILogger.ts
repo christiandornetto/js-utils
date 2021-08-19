@@ -13,22 +13,10 @@ export interface ILoggerInterfaceConfiguration {
   loggingLevel?: LoggingLevelEnum;
 }
 
-export class LoggerConfiguration implements ILoggerInterfaceConfiguration {
-  loggingLevel = LoggingLevelEnum.None;
-  loggers: ILogger[] = [];
+export interface ILoggerConfiguration extends ILoggerInterfaceConfiguration {
+  loggingLevel: LoggingLevelEnum;
+  loggers: ILogger[];
 }
-
-/**
- * @deprecated
- */
-export const LoggingLevel = {
-  Trace: 0,
-  Debug: 1,
-  Information: 2,
-  Warning: 3,
-  Error: 4,
-  None: 999,
-};
 
 export enum LoggingLevelEnum {
   Trace = 0,

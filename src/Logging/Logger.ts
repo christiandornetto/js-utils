@@ -1,17 +1,17 @@
-import { LoggerConfiguration, LoggingLevelEnum } from './ILogger.js';
+import { ILoggerConfiguration, LoggingLevelEnum } from './ILogger.js';
 import { LoggerBase } from './LoggerBase.js';
 
 /**
  * Modular logger
  */
 export class Logger extends LoggerBase {
-  #configuration: LoggerConfiguration;
+  #configuration: ILoggerConfiguration;
 
   /**
    * Creates an instance of the modular logger. Use the configuration object to inject the logging interfaces.
-   * @param {LoggerConfiguration} configuration
+   * @param {ILoggerConfiguration} configuration
    */
-  constructor(configuration = new LoggerConfiguration()) {
+  constructor(configuration: ILoggerConfiguration) {
     super(configuration);
     this.#configuration = configuration;
   }

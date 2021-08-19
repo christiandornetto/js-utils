@@ -1,17 +1,16 @@
-import { LoggingLevelEnum } from '../ILogger.js';
+import { ILoggerInterfaceConfiguration, LoggingLevelEnum } from '../ILogger.js';
 import { LoggerBase } from '../LoggerBase.js';
-import { ConsoleLoggerConfiguration } from './ConsoleLoggerConfiguration.js';
 
 /**
  * Implementation of the console logger. Set the logging level using the constructor.
  */
 export class ConsoleLogger extends LoggerBase {
-  #configuration: ConsoleLoggerConfiguration;
+  #configuration: IConsoleLoggerConfiguration;
   /**
    * Creates a new console logger with the predefined logging level
-   * @param {ConsoleLoggerConfiguration} configuration Optional configuration object
+   * @param {IConsoleLoggerConfiguration} configuration Optional configuration object
    */
-  constructor(configuration = new ConsoleLoggerConfiguration()) {
+  constructor(configuration: IConsoleLoggerConfiguration = {}) {
     super(configuration);
     this.#configuration = configuration;
   }
@@ -90,4 +89,8 @@ export class ConsoleLogger extends LoggerBase {
   #GetConsoleOptions(level: LoggingLevelEnum) {
     return `color: ${this.#configuration.colors && this.#configuration.colors[level]}`;
   }
+}
+
+export interface IConsoleLoggerConfiguration extends ILoggerInterfaceConfiguration {
+  colors?: { [level: number]: string };
 }
