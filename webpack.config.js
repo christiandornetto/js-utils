@@ -5,11 +5,11 @@ module.exports = (env, argv) => {
   return {
     mode: 'production',
     entry: {
-      index: path.resolve(__dirname, './dist/JSUtils/index.js'),
+      index: path.resolve(__dirname, './dist/index.js'),
     },
     output: {
       path: path.resolve(__dirname, './dist'), // builds to ./dist/umd/
-      filename: 'JSUtils/umd/[name].js', // index.js
+      filename: 'umd/[name].js', // index.js
       library: 'JSUtils', // aka window.myLibrary
       libraryTarget: 'umd', // supports commonjs, amd and web browsers
       globalObject: 'this',
