@@ -32,7 +32,7 @@ export class Logger extends LoggerBase {
    */
   public Trace(message: string, data: any = ''): void {
     this.ShouldLog(LoggingLevelEnum.Trace) &&
-      this.#configuration.loggers.forEach(l => l.Trace(`${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Trace]}] ${message}`, data));
+      this.#configuration.loggers.forEach(l => l.Log(LoggingLevelEnum.Trace, `${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Trace]}] ${message}`, data));
   }
   /**
    * Logs with a level of Debug
@@ -41,7 +41,7 @@ export class Logger extends LoggerBase {
    */
   public LogDebug(message: string, data: any = ''): void {
     this.ShouldLog(LoggingLevelEnum.Debug) &&
-      this.#configuration.loggers.forEach(l => l.LogDebug(`${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Debug]}] ${message}`, data));
+      this.#configuration.loggers.forEach(l => l.Log(LoggingLevelEnum.Debug, `${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Debug]}] ${message}`, data));
   }
   /**
    * Logs with a level of Information
@@ -49,7 +49,7 @@ export class Logger extends LoggerBase {
    */
   public LogInformation(message: string, data: any = ''): void {
     this.ShouldLog(LoggingLevelEnum.Information) &&
-      this.#configuration.loggers.forEach(l => l.LogInformation(`${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Information]}] ${message}`, data));
+      this.#configuration.loggers.forEach(l => l.Log(LoggingLevelEnum.Information, `${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Information]}] ${message}`, data));
   }
   /**
    * Logs with a level of Warning
@@ -58,7 +58,7 @@ export class Logger extends LoggerBase {
    */
   public LogWarning(message: string, data: any = ''): void {
     this.ShouldLog(LoggingLevelEnum.Warning) &&
-      this.#configuration.loggers.forEach(l => l.LogWarning(`${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Warning]}] ${message}`, data));
+      this.#configuration.loggers.forEach(l => l.Log(LoggingLevelEnum.Warning, `${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Warning]}] ${message}`, data));
   }
   /**
    * Logs with a level of Error
@@ -67,7 +67,7 @@ export class Logger extends LoggerBase {
    */
   public LogError(message: string, data: any = ''): void {
     this.ShouldLog(LoggingLevelEnum.Error) &&
-      this.#configuration.loggers.forEach(l => l.LogError(`${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Error]}] ${message}`, data));
+      this.#configuration.loggers.forEach(l => l.Log(LoggingLevelEnum.Error, `${this.TimeStamp()} [${LoggingLevelEnum[LoggingLevelEnum.Error]}] ${message}`, data));
   }
 
   public Download(): void {

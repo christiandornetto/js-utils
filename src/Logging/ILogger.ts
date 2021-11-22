@@ -1,5 +1,4 @@
 export interface ILogger {
-  get LoggingLevel(): LoggingLevelEnum;
   Log(level: LoggingLevelEnum, message: string, data: any): void;
   Trace(message: string, data: any): void;
   LogDebug(message: string, data: any): void;
