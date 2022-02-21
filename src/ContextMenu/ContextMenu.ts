@@ -23,7 +23,7 @@ export class ContextMenu {
         option.addEventListener('click', () => menuElement.classList.remove(configuration.css.activeClass));
       });
 
-      const { normalisedX, normalisedY } = NormalisePosition(e.offsetX, e.offsetY, menuElement, scope);
+      const { normalisedX, normalisedY } = NormalisePosition(e.x, e.y, menuElement, scope);
       menuElement.style.left = `${normalisedX}px`;
       menuElement.style.top = `${normalisedY}px`;
       menuElement.classList.remove(configuration.css.activeClass);
