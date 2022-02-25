@@ -19,7 +19,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "mousetrap": "^1.6.5"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "babel-loader": "^8.2.2",

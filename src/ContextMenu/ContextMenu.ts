@@ -35,7 +35,7 @@ export class ContextMenu {
           hint.textContent = o.hint;
         }
 
-        option.addEventListener('click', e => configuration.callback.call(this, { key: o.key, ...args }));
+        option.addEventListener('click', e => configuration.callback.call(this, { event: e, key: o.key, ...args }));
         option.addEventListener('click', () => menuElement.classList.remove(configuration.css.activeClass));
       });
 
