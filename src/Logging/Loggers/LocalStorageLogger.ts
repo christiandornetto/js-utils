@@ -1,8 +1,8 @@
-import { Queue } from '../../Queue/Queue.js';
-import { ILogger, ILoggerInterfaceConfiguration, LoggingLevelEnum } from '../ILogger.js';
+import { Queue } from '../../DataStructures/Queue.js';
+import { ILoggerInterfaceConfiguration, LoggingLevelEnum } from '../ILogger.js';
 import { LoggerBase } from '../LoggerBase.js';
 
-export class LocalStorageLogger extends LoggerBase implements ILogger {
+export class LocalStorageLogger extends LoggerBase {
   #configuration: ILocalStorageLoggerConfiguration;
   #queue: Queue;
 

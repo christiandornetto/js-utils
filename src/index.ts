@@ -4,6 +4,9 @@ export { ILogger, ILoggerConfiguration, ILoggerInterfaceConfiguration, LoggingLe
 export { ConsoleLogger } from './Logging/Loggers/ConsoleLogger.js';
 export { LocalStorageLogger } from './Logging/Loggers/LocalStorageLogger.js';
 
-export { Queue } from './Queue/Queue.js';
+export { CommandManager } from './Command/CommandManager.js';
+export { CommandHistory } from './Command/CommandHistory.js';
 
-export { ContextMenu } from './ContextMenu/ContextMenu.js';
+export * from './ContextMenu/ContextMenu.js';
+export * from './DataStructures.js';
+export * from './Command/ICommand.js';

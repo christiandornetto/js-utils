@@ -51,7 +51,6 @@ export class ContextMenu {
 
     document.body.addEventListener('click', e => {
       if ((e.target as HTMLElement).offsetParent != menuElement) {
-        e.stopPropagation();
         menuElement.classList.remove(configuration.css.activeClass);
       }
     });
@@ -81,7 +80,7 @@ function NormalisePosition(x: number, y: number, menuElement: HTMLElement, scope
   return { normalisedX, normalisedY };
 }
 
-interface IContextMenuConfiguration {
+export interface IContextMenuConfiguration {
   data: IContextMenuData;
   css: IContextMenuStyle;
   callback: Function;

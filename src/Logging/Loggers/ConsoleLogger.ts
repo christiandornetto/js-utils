@@ -1,10 +1,10 @@
-import { ILogger, ILoggerInterfaceConfiguration, LoggingLevelEnum } from '../ILogger.js';
+import { ILoggerInterfaceConfiguration, LoggingLevelEnum } from '../ILogger.js';
 import { LoggerBase } from '../LoggerBase.js';
 
 /**
  * Implementation of the console logger. Set the logging level using the constructor.
  */
-export class ConsoleLogger extends LoggerBase implements ILogger {
+export class ConsoleLogger extends LoggerBase {
   #configuration: IConsoleLoggerConfiguration;
   /**
    * Creates a new console logger with the predefined logging level
