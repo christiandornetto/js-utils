@@ -10,9 +10,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "tsc",
-    "build": "webpack",
-    "postbuild": "tsc",
+    "build": "tsc && webpack && tsc",
+    "postbuild": "npx typedoc src/index.ts --hideGenerator",
     "publish": "cp package.json ./dist && cd ./dist && npm publish",
     "publish:beta": "npm version prerelease --preid beta --no-git-tag-version && npm run publish --tag beta",
     "publish:patch": "npm version patch --no-git-tag-version && npm run publish"
